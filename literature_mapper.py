@@ -21,6 +21,7 @@
  *                                                                         *
  ***************************************************************************/
 """
+# experimenting with python
 from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication, QObject, QVariant, pyqtSignal, pyqtRemoveInputHook
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QAction, QTableWidget, QTableWidgetItem, QMessageBox
@@ -104,7 +105,7 @@ class LiteratureMapper:
         :type message: str, QString
 
         :returns: Translated version of message.
-        :rtype: QString
+        :rtype: QString 
         """
         # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('LiteratureMapper', message)
