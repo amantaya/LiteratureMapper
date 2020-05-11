@@ -176,7 +176,7 @@ ul li:hover a {
 	margin-left: 0px;
 }
 /* Leaflet Section*/
-	#mapid { height: 500px; }
+	#mapid { height: 50%; }
 /* More info */
 footer {
 	background-color: #FFFFFF;
