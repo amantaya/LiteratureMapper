@@ -47,7 +47,7 @@
 	<section class="body">
 	<p>
 		<script type="text/javascript">
-			var mymap = L.map('mapid').setView([32.2226, -110.9747], 10);
+			var mymap = L.map('mapid').setView([32.2226, -110.9747], 6);
 			<!-- These are the coordinates for Tucson AZ -->
 			L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', 
 						{attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -58,6 +58,71 @@
 						 accessToken: 'pk.eyJ1IjoiYW1hbnRheWEiLCJhIjoiY2thMzMyajRwMGs0bDNnbWVwNDB0cG4wMiJ9.ri0-zHEcTnbvY9QhrjRTNQ'
 						})
 				.addTo(mymap);
+			var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+attribution: '&amp; OpenStreetMap'}).addTo(mymap);
+//var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(mymap);
+
+
+//all the points with if statement
+var myLayer = L.geoJson().addTo(mymap);
+var xmlhttp = new XMLHttpRequest();
+var url = 'https://api.zotero.org/users/2338633/collections/NR8XU5N6/items?v=3';
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+
+function myFunction(arr) {
+    var parsetext;
+    var i;
+    for(i = 0; i < arr.length; i++) { 
+        var pophttp = new XMLHttpRequest();
+        var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
+		var extratext = arr[i].data.extra;
+		var pointtype = extratext.substr(extratext.search('"type":')+9, 1);
+		console.log(pointtype)
+		
+		if (pointtype == 'P'){
+			var extrageom = extratext.substr(extratext.search("<geojson>")+9, (extratext.search("</\\geojson>")-extratext.search("<geojson>"))-9);
+			
+			console.log(extrageom)
+		
+		    parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry":' + extrageom + '}';
+			
+			console.log(parsetext)
+        
+			var geojsonFeature = JSON.parse(parsetext);
+        
+			L.geoJson(geojsonFeature, {
+				pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+				radius: 4,
+				fillOpacity: 1
+				}).bindPopup(feature.properties.popupContent);
+					}
+				}).addTo(myLayer);
+		} else {
+			var extrageom = extratext.substr(extratext.search("coordinates")+14, (extratext.search("}</\\geojson>")-extratext.search("coordinates"))-14);
+                
+			parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": {"type": "MultiPoint", "coordinates":' + extrageom + '}}';
+			var geojsonFeatureMultiPoints = JSON.parse(parsetext);
+        
+			L.geoJson(geojsonFeatureMultiPoints, {
+				pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+				radius: 4,
+				fillOpacity: 1
+				}).bindPopup(feature.properties.popupContent);
+					}
+				}).addTo(myLayer);
+			}          
+        }};
 		</script>
 	</p>
 	</section>
