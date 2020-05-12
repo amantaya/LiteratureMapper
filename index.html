@@ -27,7 +27,7 @@
 <div class="container"> 
   <!-- Navigation -->
   <header> <a href="">
-    <h4 class="logo">LIGHT</h4>
+    <h4 class="logo">LiteratureMapper</h4>
    </a>
     <nav>
       <ul>
@@ -37,18 +37,13 @@
       </ul>
     </nav>
   </header>
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <h2 class="hero_header">HERO <span class="light">LIGHT</span></h2>
-    <p class="tagline">This is a placeholder page</p>
-  </section>
-	<!--Leaflet Section-->
-	<div id="mapid"></div>
+<!--Leaflet Section-->
+<div id="mapid"></div>
 	<section class="body">
-	<p>
-		<script type="text/javascript">
-			var mymap = L.map('mapid').setView([32.2226, -110.9747], 6);
-			<!-- These are the coordinates for Tucson AZ -->
+		<p>
+			<script type="text/javascript">
+			var mymap = L.map('mapid').setView([32.2226, -110.9747], 5);
+//			These are the coordinates for Tucson AZ
 			L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', 
 						{attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 						 maxZoom: 18,
@@ -127,11 +122,13 @@ function myFunction(arr) {
 	</p>
 	</section>
   <!-- About Section -->
-  <section class="about" id="about">
+  <section>
     <h2 class="hidden">About</h2>
-    <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-    <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-    <p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+    <p class="text" align="center">
+		<link>
+			<a href="http://micheletobias.github.io/maps/LiteratureMap.html">Tobias, M.M. & A.I. Mandel. 2015. Beach Plant Literature Map.</a>
+		</link>
+	</p>
   </section>
   <!-- Stats Gallery Section -->
   <div class="gallery">
