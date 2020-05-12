@@ -101,9 +101,10 @@ ul li:hover a {
 	color: #A3A3A3;
 }
 .about {
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-top: 35px;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
 	display: inline-block;
 	background-color: #FFFFFF;
 	margin-top: 0px;
@@ -176,7 +177,10 @@ ul li:hover a {
 	margin-left: 0px;
 }
 /* Leaflet Section*/
-	#mapid { height: 50%; }
+	#mapid { 
+		height: 50%;
+		width: 80%;
+}
 /* More info */
 footer {
 	background-color: #FFFFFF;
