@@ -61,8 +61,8 @@ attribution: '&amp; OpenStreetMap'}).addTo(mymap);
 //all the points with if statement
 var myLayer = L.geoJson().addTo(mymap);
 var xmlhttp = new XMLHttpRequest();
-var url = 'https://api.zotero.org/users/2338633/collections/NR8XU5N6/items?v=3';
-
+//var url = 'https://api.zotero.org/users/2338633/collections/NR8XU5N6/items?v=3';
+var url = 'https://api.zotero.org/users/6345938/collections/PJZU6B5K/items?v=3';
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = JSON.parse(xmlhttp.responseText);
@@ -78,7 +78,8 @@ function myFunction(arr) {
     var i;
     for(i = 0; i < arr.length; i++) { 
         var pophttp = new XMLHttpRequest();
-        var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
+//		var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
+		var popurl = 'https://api.zotero.org/users/6345938/items/'+ arr[i].data.key +'?format=bib&v=3';
 		var extratext = arr[i].data.extra;
 		var pointtype = extratext.substr(extratext.search('"type":')+9, 1);
 		console.log(pointtype)
@@ -124,11 +125,9 @@ function myFunction(arr) {
   <!-- About Section -->
   <section>
     <h2 class="hidden">About</h2>
-    <p class="text" align="center">
-		<link>
-			<a href="http://micheletobias.github.io/maps/LiteratureMap.html">Tobias, M.M. & A.I. Mandel. 2015. Beach Plant Literature Map.</a>
-		</link>
-	</p>
+	  <p class="text" align="center">
+		  <a href="http://micheletobias.github.io/maps/LiteratureMap.html">Tobias, M.M. & A.I. Mandel. 2015. Beach Plant Literature Map.</a>
+	  </p>
   </section>
   <!-- Stats Gallery Section -->
 <!--
