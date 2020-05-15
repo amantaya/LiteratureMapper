@@ -62,7 +62,7 @@ attribution: '&amp; OpenStreetMap'}).addTo(mymap);
 var myLayer = L.geoJson().addTo(mymap);
 var xmlhttp = new XMLHttpRequest();
 //var url = 'https://api.zotero.org/users/2338633/collections/NR8XU5N6/items?v=3';
-var url = 'https://api.zotero.org/users/6345938/collections/PJZU6B5K/items?v=3';
+var url = 'https://api.zotero.org/users/6345938/collections/6BBDFZSW/items?v=3';
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = JSON.parse(xmlhttp.responseText);
@@ -126,7 +126,7 @@ function myFunction(arr) {
   <section>
     <h2 class="hidden">About</h2>
 	  <p class="text" align="center">
-		  <a href="http://micheletobias.github.io/maps/LiteratureMap.html">Tobias, M.M. & A.I. Mandel. 2015. Beach Plant Literature Map.</a>
+		  <a href="http://micheletobias.github.io/maps/LiteratureMap.html">Credit: Tobias, M.M. & A.I. Mandel. 2015. Beach Plant Literature Map.</a>
 	  </p>
   </section>
   <!-- Stats Gallery Section -->
