@@ -91,8 +91,8 @@ ul li:hover a {
 }
 /* About Section */
 .text_column {
-	width: 29%;
-	text-align: justify;
+	width: 100%;
+	text-align: left;
 	font-weight: lighter;
 	line-height: 25px;
 	float: left;
@@ -177,8 +177,8 @@ ul li:hover a {
 	margin-left: 0px;
 }
 /* Leaflet Section*/
-	#mapid {
-    height: 80%;
+#mapid {
+    height: 70%;
     width: 100%;
 }
 /* More info */
