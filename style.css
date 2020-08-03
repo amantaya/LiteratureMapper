@@ -179,11 +179,7 @@ ul li:hover a {
 /* Leaflet Section*/
 	#mapid {
     height: 80%;
-    width: 80%;
-	margin-top: 0px;
-	margin-right: 100px;
-	margin-bottom: 10px;
-	margin-left: 100px;
+    width: 100%;
 }
 /* More info */
 footer {
